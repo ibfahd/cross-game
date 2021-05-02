@@ -18,3 +18,6 @@ class Player(Turtle):
 
     def win(self):
         return self.ycor() >= FINISH_LINE_Y
+
+    def recross(self):
+        self.goto(STARTING_POSITION)

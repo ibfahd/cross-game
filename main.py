@@ -13,6 +13,7 @@ screen.tracer(0)
 player = Player()
 cars = []
 cars.append(CarManager())
+score = Scoreboard()
 
 def stop():
     global game_is_on
@@ -33,12 +34,15 @@ while game_is_on:
             car.go()
             if car.crash(player) <= 20:
                 print("Crash")
+                score.gameover()
+                time.sleep(5)
                 game_is_on = False
         else:
             cars.remove(car)
     if player.win():
         print("WIN!!!")
-        game_is_on = False 
+        player.recross()
+        score.levelup()
     screen.update()
     loop += 1
     if (loop == 6):
