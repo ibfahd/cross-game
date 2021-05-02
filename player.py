@@ -15,3 +15,6 @@ class Player(Turtle):
 
     def cross(self):        
         self.goto(self.xcor(), self.ycor() + MOVE_DISTANCE)
+
+    def win(self):
+        return self.ycor() >= FINISH_LINE_Y

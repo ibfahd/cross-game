@@ -29,10 +29,18 @@ loop = 0
 while game_is_on:
     time.sleep(0.1)
     for car in cars:
-        car.go()
+        if car.position() > -320 :
+            car.go()
+            if car.crash(player) <= 20:
+                print("Crash")
+                game_is_on = False
+        else:
+            cars.remove(car)
+    if player.win():
+        print("WIN!!!")
+        game_is_on = False 
     screen.update()
     loop += 1
     if (loop == 6):
        cars.append(CarManager()) 
        loop = 0
-

@@ -12,8 +12,13 @@ class CarManager(Turtle):
         self.shape("square")
         self.color(choice(COLORS))
         self.penup()
-        self.goto(320, randrange(-260,280, 20))
+        self.goto(320, randrange(-240,240, 20))
     
     def go(self):
         self.goto(self.xcor() - MOVE_INCREMENT, self.ycor())
 
+    def position(self):
+        return self.xcor()
+
+    def crash(self, crossing_turtle):
+        return self.distance(crossing_turtle)
